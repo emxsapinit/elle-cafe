@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ELLE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900' rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+
+</head>
+<body>
+<div id="app" >
+  <v-app 
+    >
+    <v-content>
+      <v-toolbar light fixed app>
+        <v-toolbar-title><div class="text-decoration-underline"> ELLE
+          </div></v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-toolbar-items class="hidden-sm-and-down">
+          <v-btn v-for="item in menu" :to="item.link" flat>{{
+            item.title
+          }}</v-btn>
+        </v-toolbar-items>
+        <v-menu class="hidden-md-and-up">
+          <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
+          <v-list>
+            <v-list-tile v-for="item in menu">
+              <v-list-tile-content>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
+      </v-toolbar>
+         
+      <section id="hero">
+        <v-row>
+          <v-img
+            :min-height="'calc(80vh - ' + $vuetify.application.top + 'px)'"
+            src="img/elle-bg.png"
+          >
+            <v-theme-provider dark>
+              <v-container fill-height >
+                <v-row
+                  class="mt-10"
+                  justify="center"
+
+                >
+             
+                  <v-btn
+                    absolute
+                    bottom
+                    outlined
+                    @click="$vuetify.goTo('#about')"
+                  >
+
+                    <v-icon>mdi-chevron-double-down</v-icon>
+                  </v-btn>
+
+
+                </v-row>
+              </v-container>
+            </v-theme-provider>
+          </v-img>
+        </v-row>
+      </section>
+
+      <section id="about">
+
+        <v-container class="text-center">
+          <img src="img/stor.png" alt="" width="400px">
+
+          <v-responsive
+            class="mx-auto mb-8"
+            width="56"
+          >
+            <v-divider class="mb-1"></v-divider>
+
+            <v-divider></v-divider>
+          </v-responsive>
+          
+          <v-container>
+            <v-row>
+              <v-col md="6">
+                <v-responsive
+                class="mx-auto title font-weight-light mb-8"
+                max-width="720"
+              >
+              Elle is a cafe and resto bar known for its organic inspired recipes and place, from the vast rustic floor, to the greens of the wall, every detail from the ground up has been thoughtfully considered. <br> The interplay of textures and colour brings life and a vibrance that embraces the cafe's place in the dress circle of Clark. <br>
+                   
+              <v-btn class="mt-8"
+              elevation="2"
+              outlined
+              >About ELLE</v-btn>
+               </v-responsive>
+
+               
+            </v-responsive>
+              
+              </v-col>
+              <v-col md="6">
+                <v-img           
+                  max-height="400"
+                  max-width="700"
+                  src="https://i.ibb.co/1qYVM1p/story.png"
+                ></v-img>              
+              </v-col>
+            </v-row> 
+           
+          </v-container>
+          <v-btn
+          absolute
+          outlined
+          class="mt-8"
+          @click="$vuetify.goTo('#menu')"
+        >
+
+          <v-icon color="black">mdi-chevron-double-down</v-icon>
+        </v-btn>
+         
+        </v-container>
+
+        <div class="py-12"></div>
+      </section>
+
+      <section id="taste">
+        <v-parallax src="img/taste.png"></v-parallax>
+
+      </section>
+
+      <section id="menu">
+
+        <v-container class="text-center">
+          <img src="img/menu.png" alt="" width="400px">
+          <v-responsive
+            class="mx-auto mb-12"
+            width="56"
+          >
+            <v-divider class="mb-1"></v-divider>
+
+            <v-divider></v-divider>
+          </v-responsive>
+
+          <v-container>
+            <v-row>
+              
+              <v-col md="6">
+                
+                <v-container class="grey lighten-5">
+                  <v-row>
+                    <v-row>
+                    
+                        <v-col v-for="item in items" :key="item.id" class="mt-2 mb-2"  md="6">
+                          <v-img :src="item.img" max-width="370px"></v-img>    
+                        </v-col>
+                    </v-row>
+                
+                  </v-row>
+                </v-container>          
+              </v-col>
+              <v-col md="6">
+                <v-responsive
+                class="mx-auto title font-weight-light mb-8"
+                max-width="720"
+              >
+              
+                 At Elle, you will find our own locally roasted, specialty coffee, freshly baked pastries, and delicious breakfast and lunch items prepared in-house by our fantastic team. <br>
+              For those with pure food indulgence in mind, come next door and sate your desires with our ever changing seasonally inspired small plates. <br/> 
+              Elle is not simply a café, it's a community. Please join us. All are welcome. <br>
+              
+              <v-btn class="mt-8"
+              elevation="2"
+              outlined
+              >View Menu</v-btn>
+               </v-responsive>
+              
+              </v-col>
+            </v-row> 
+             
+          </v-container>
+          <v-btn
+          absolute
+          outlined
+          class="mt-8"
+          @click="$vuetify.goTo('#contact')"
+        >
+
+          <v-icon color="black">mdi-chevron-double-down</v-icon>
+        </v-btn>
+         
+          </v-container>
+        </v-container>
+
+        <div class="py-12"></div>
+      </section>
+      
+      <section id="blend">
+        <v-parallax          
+          src="img/blend.png"
+        >
+         
+        </v-parallax>
+      </section>
+
+      <section id="contact">
+
+        <v-container class="text-center">
+          <img src="img/contact.png" alt="" width="400">
+          <v-responsive
+            class="mx-auto mb-12"
+            width="56"
+          >
+            <v-divider class="mb-1"></v-divider>
+         
+             
+          
+            <v-divider></v-divider>
+          </v-responsive>
+
+          <v-row justify="center">
+            <v-form
+                ref="form"
+                v-model="valid"
+                lazy-validation
+              >
+                <v-text-field
+                  v-model="name"
+                  :counter="10"
+                  :rules="nameRules"
+                  label="Name"
+                  width="700px"
+                  required
+                ></v-text-field>
+            
+                <v-text-field
+                  v-model="email"
+                  :rules="emailRules"
+                  label="E-mail"
+                  required
+                ></v-text-field>
+                <v-textarea
+                label="Message">
+
+                </v-textarea>
+                </v-text-field>
+                <v-btn
+                  color="#d9b07b"
+                  class="mr-4"
+                  @click="validate"
+                >
+                  Submit
+                </v-btn> <br>
+                <v-btn
+              outlined
+              bottom
+              class="mr-3 mt-9"
+              @click="$vuetify.goTo('#hero')"
+                >
+
+              <v-icon color="black">mdi-chevron-double-up</v-icon>
+              </v-btn>
+              </v-form>
+          </v-row>
+
+       
+        </v-container>
+      
+        </v-container>
+
+        <div class="py-12"></div>
+      </section>
+      
+    </v-content>
+
+    <v-footer
+      class="justify-center"
+      color="black"
+      height="60"
+    >
+      <div class="title font-weight-light grey--text text--lighten-1 text-center">
+        &copy; ELLE {{ (new Date()).getFullYear() }} 
+      </div>
+    </v-footer>
+
+  </v-app>
+ </div>
+
+ <style>
+   .v-text-field{
+      width: 400px;}
+ </style>
+
+ <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+ <script>
+   
+  new Vue({
+    el: '#app',
+    vuetify: new Vuetify(),
+    data () {
+      return {
+        items: [
+      {
+        id: 1,
+        img: "img/1.jpg"
+      },
+
+      {
+        id: 2,
+        img:
+          "img/2.jpg"
+      },
+      {
+        id: 3,
+        img:
+          "img/3.jpg"
+      },
+
+      {
+        id: 4,
+        img:
+          "img/4.jpg"
+      },
+      
+    ],
+        menu: [
+        { link: "#about", title: "Our Story" },
+        { link: "info", title: "Menu" },
+        { link: "warning", title: "Contact" }
+      ]
+      };
+    },
+      methods: {
+       menuItems() {
+      return this.menu;
+    }
+    }
+  })
+</script>
+</body>
+</html>
